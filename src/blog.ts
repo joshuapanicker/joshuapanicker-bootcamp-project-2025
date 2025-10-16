@@ -26,9 +26,8 @@ const blogs : Blog[] = [
     },
 ];
 
-// Function to dynamically append blogs to the webpage using DOM manipulation
 function appendBlogsToPage(): void {
-    // Access the container for blogs
+    // Step 1: Access the Container for Blogs
     const blogContainer = document.getElementById('blog-container');
     
     if (!blogContainer) {
@@ -36,46 +35,39 @@ function appendBlogsToPage(): void {
         return;
     }
 
-    // Iterate over the list of blogs and create elements for each
+    // Step 2: Create a Function to Iterate Over the List of Blogs
     blogs.forEach((blog) => {
+        // Step 3: While iterating over the list of blogs, Dynamically Create and Append Blog Elements
+        
         // Create a new div element to represent the blog post container
         const blogPost = document.createElement("div");
         blogPost.className = "blog-post";
         
-        // Create child elements
-        const title = document.createElement("h2");
+        // Create child elements such as:
+        // - h1 for the title
+        const title = document.createElement("h1");
         title.textContent = blog.title;
         title.className = "blog-title";
         
-        const date = document.createElement("p");
-        date.textContent = blog.date;
-        date.className = "blog-date";
-        
+        // - img for the blog image
         const image = document.createElement("img");
         image.src = blog.image;
         image.alt = blog.imageAlt;
         image.className = "blog-image";
         
+        // - p for the description
         const description = document.createElement("p");
         description.textContent = blog.description;
         description.className = "blog-description";
         
-        const readMoreLink = document.createElement("a");
-        readMoreLink.href = `#${blog.slug}`;
-        readMoreLink.textContent = "Read More";
-        readMoreLink.className = "blog-read-more";
-        
-        // Append child elements to the blog post div
+        // Append these elements to the div
         blogPost.appendChild(title);
-        blogPost.appendChild(date);
         blogPost.appendChild(image);
         blogPost.appendChild(description);
-        blogPost.appendChild(readMoreLink);
         
-        // Append the blog post to the main blog container
+        // Then append the div to the main blog container
         blogContainer.appendChild(blogPost);
     });
 }
 
-// Call the function when the DOM is loaded
 document.addEventListener('DOMContentLoaded', appendBlogsToPage);
