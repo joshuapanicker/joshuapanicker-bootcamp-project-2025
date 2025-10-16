@@ -27,7 +27,6 @@ const blogs : Blog[] = [
 ];
 
 function appendBlogsToPage(): void {
-    // Step 1: Access the Container for Blogs
     const blogContainer = document.getElementById('blog-container');
     
     if (!blogContainer) {
@@ -35,38 +34,39 @@ function appendBlogsToPage(): void {
         return;
     }
 
-    // Step 2: Create a Function to Iterate Over the List of Blogs
     blogs.forEach((blog) => {
-        // Step 3: While iterating over the list of blogs, Dynamically Create and Append Blog Elements
         
-        // Create a new div element to represent the blog post container
         const blogPost = document.createElement("div");
         blogPost.className = "blog-post";
         
-        // Create child elements such as:
-        // - h1 for the title
+
         const title = document.createElement("h1");
         title.textContent = blog.title;
         title.className = "blog-title";
         
-        // - img for the blog image
         const image = document.createElement("img");
         image.src = blog.image;
         image.alt = blog.imageAlt;
         image.className = "blog-image";
         
-        // - p for the description
         const description = document.createElement("p");
         description.textContent = blog.description;
         description.className = "blog-description";
         
-        // Append these elements to the div
+        // Create a link wrapper to make the entire blog post clickable
+        const blogLink = document.createElement("a");
+        blogLink.href = `blogs/${blog.slug}.html`;
+        blogLink.className = "blog-link";
+        blogLink.style.textDecoration = "none";
+        blogLink.style.color = "inherit";
+        
         blogPost.appendChild(title);
         blogPost.appendChild(image);
         blogPost.appendChild(description);
         
-        // Then append the div to the main blog container
-        blogContainer.appendChild(blogPost);
+        // Append the blog post to the link, then append the link to the container
+        blogLink.appendChild(blogPost);
+        blogContainer.appendChild(blogLink);
     });
 }
 
