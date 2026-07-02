@@ -42,7 +42,7 @@ async function getProjects(): Promise<
       "TradingView",
       "Recharts",
     ],
-    link: "https://github.com/joshuapanicker/Stockwiz-AI-Stock-Dashboard",
+    link: "https://stockwiz-ai-stock-dashboard-five.vercel.app/",
   };
 
   const polyPagesProject = {
