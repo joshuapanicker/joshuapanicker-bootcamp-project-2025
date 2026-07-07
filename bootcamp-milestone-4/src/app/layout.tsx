@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import RedesignNavbar from "@/components/redesign/Navbar";
 import CustomCursor from "@/components/CustomCursor";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         <CustomCursor />
         <RedesignNavbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
