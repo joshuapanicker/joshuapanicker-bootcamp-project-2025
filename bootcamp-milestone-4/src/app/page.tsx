@@ -23,13 +23,13 @@ type ProjectDoc = {
 async function getProjects(): Promise<
   { _id?: string; name: string; description: string; image: string; image_alt?: string; tech_stack: string[]; link?: string }[]
 > {
-  const stockWizProject = {
-    _id: "stockwiz",
-    name: "StockWiz",
+  const stockBrookProject = {
+    _id: "stockbrook",
+    name: "Stockbrook",
     description:
       "AI-powered stock screening and portfolio management dashboard. Combines live Yahoo Finance market data with Claude AI to automate stock analysis and portfolio decisions. A Python/FastAPI backend exposes REST and SSE streaming endpoints and runs a custom criteria engine that evaluates configurable buy/watch/sell rules against real-time fundamentals — PE ratios, revenue growth, profit margins, 52-week positioning, and market trend. Claude is wired into the pipeline to return structured reasoning streamed token-by-token to a React + TypeScript frontend with TradingView lightweight-charts and Recharts visualizations. Features include an interactive stock screener, candlestick and depth-of-market charts, a per-stock AI assistant with 90-day price predictions, a general market assistant chatbot, and a portfolio tracker with P&L, allocation charts, and AI-driven sell signals.",
     image: "/stockwizpreview.png",
-    image_alt: "StockWiz dashboard preview",
+    image_alt: "Stockbrook dashboard preview",
     tech_stack: [
       "React",
       "TypeScript",
@@ -42,7 +42,7 @@ async function getProjects(): Promise<
       "TradingView",
       "Recharts",
     ],
-    link: "https://stockwiz-ai-stock-dashboard-five.vercel.app/",
+    link: "https://stockbrook-ai-stock-dashboard-five.vercel.app/",
   };
 
   const polyPagesProject = {
@@ -91,10 +91,10 @@ async function getProjects(): Promise<
         link: p.link ?? "#",
       };
     });
-    return [polyPagesProject, stockWizProject, ...dbProjects];
+    return [polyPagesProject, stockBrookProject, ...dbProjects];
   } catch (err) {
     console.error("Error fetching projects:", err);
-    return [polyPagesProject, stockWizProject];
+    return [polyPagesProject, stockBrookProject];
   }
 }
 
